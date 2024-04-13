@@ -7,7 +7,7 @@ import './Menu.css'
 
 
 
-function Menu(){
+function Menu({setProductInfo}){
 
     const [localSettings, setLocalSettings] = useState({
         currentUrl: "http://localhost:8000/c_list/",
@@ -53,7 +53,13 @@ function Menu(){
                         <h4 key={el.name}>{el.name}</h4>
                         {el.items.map(child => {
                             return (
-                                <p key={child} onClick={() => {console.log(child)}}>{child}</p>
+                                <p key={child} onClick={() => {
+                                    axios.get(`http://localhost:8000/${child}/`).then(resp => {
+                                        console.log(resp.data[0])
+                                        setProductInfo(resp.data[0])
+                                    })
+                                }}>
+                                {child}</p>
                             );
                         })}
                     </div>

@@ -11,9 +11,14 @@ class CategorySerializer(serializers.ModelSerializer):
 
 class ItemsSerializer(serializers.ModelSerializer):
     description = serializers.StringRelatedField()
+    image_url = serializers.SerializerMethodField('get_image_url')
     class Meta:
         model = Items
-        fields = ["name", "image", "description"]
+        fields = ["name", "description", 'image_url']
+    
+    def get_image_url(self, obj):
+        return "http://localhost:8000"+ obj.image.url
+
 
 class ManufacturersSerializer(serializers.ModelSerializer):
     items = serializers.StringRelatedField(many=True)

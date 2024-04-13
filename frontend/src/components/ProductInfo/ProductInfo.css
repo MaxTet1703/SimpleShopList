@@ -1,0 +1,18 @@
+.text-content{
+    width: 450px;
+    max-height: 500px;
+}
+.close-cross{
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    color: rgba(0, 0, 0, .4)
+}
+.close-cross:hover{
+    color: rgba(0, 0,0, .8);
+}
+img.product-img{
+    width: 500px;
+    height: 500px;
+}

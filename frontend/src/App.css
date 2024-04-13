@@ -1,3 +1,7 @@
 .menu{
     padding: 5px;
 }
+.container-fluid,
+.container-fluid .row{
+    height: 100%;
+}
