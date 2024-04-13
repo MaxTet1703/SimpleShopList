@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Items, Category, Manufacturers
+from .models import Items, Category, Manufacturers, Description
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -25,3 +25,10 @@ class ManufacturersSerializer(serializers.ModelSerializer):
     class Meta:
         model = Manufacturers
         fields = ["name", "items"]
+
+class NewItemSerializer(serializers.Serializer):
+    name = serializers.CharField()
+    description = serializers.CharField()
+    image = serializers.ImageField()
+    category = serializers.CharField()
+    manufacturer = serializers.CharField()

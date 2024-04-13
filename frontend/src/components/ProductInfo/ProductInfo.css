@@ -1,6 +1,7 @@
 .text-content{
     width: 450px;
     max-height: 500px;
+    margin: 20px;
 }
 .close-cross{
     position: absolute;

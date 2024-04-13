@@ -1,0 +1,37 @@
+#create > *{
+    margin: 5px;
+}
+#create select,
+#create button{
+    width: max-content;
+}
+#create input,
+#create textarea,
+#create select{
+    padding: 5px;
+}
+#create input{
+    border-radius: 10px;
+    border: 1px solid black;
+}
+#create textarea{
+    border-radius: 10px;
+    resize: none;
+}
+#create select{
+    background: none;
+    border-radius: 5px;
+}
+#create button{
+    padding: 15px 25px;
+    background: none;
+    border-radius: 10px;
+    border: none;
+    background: #4B92DB;
+    color: white;
+    transition: .4s;
+}
+#create button:hover{
+    background: #4B9;
+    border-radius: 25px;
+}

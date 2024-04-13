@@ -28,45 +28,46 @@ function Menu({setProductInfo}){
 
     return(
         <>
-            {localSettings.itemsData.map(el => {
-                return (
-                    <>
-                    <div className="btn-tb">
-                        <button onClick={() => {
-                            setLocalSettings(prev => {
-                                return {
-                                    ...prev,
-                                    currentUrl: "http://localhost:8000/c_list/"
-                                }
-                            })
-                        }}>По категориям</button>
-                        <button onClick={() => {
-                            setLocalSettings(prev => {
-                                return {
-                                    ...prev,
-                                    currentUrl: "http://localhost:8000/m_list/"
-                                }
-                            })
-                        }}>По производителям</button>
-                    </div>
-                    <div className="product-list">
-                        <h4 key={el.name}>{el.name}</h4>
-                        {el.items.map(child => {
-                            return (
-                                <p key={child} onClick={() => {
-                                    axios.get(`http://localhost:8000/${child}/`).then(resp => {
-                                        console.log(resp.data[0])
-                                        setProductInfo(resp.data[0])
-                                    })
-                                }}>
-                                {child}</p>
-                            );
-                        })}
-                    </div>
-                    </>
-                );       
-            })}
-        </>)
+                      
+            <div className="btn-tb">
+                <button onClick={() => {
+                    setLocalSettings(prev => {
+                        return {
+                            ...prev,
+                            currentUrl: "http://localhost:8000/c_list/"
+                        }
+                    })
+                }}>По категориям</button>
+                <button onClick={() => {
+                    setLocalSettings(prev => {
+                        return {
+                            ...prev,
+                            currentUrl: "http://localhost:8000/m_list/"
+                        }
+                    })
+                }}>По производителям</button>
+            </div>
+            <div className="product-list">
+                {localSettings.itemsData.map(el => {
+                    return (
+                        <>
+                            <h4 key={el.name}>{el.name}</h4>
+                            {el.items.map(child => {
+                                return (
+                                    <p key={child} onClick={() => {
+                                        axios.get(`http://localhost:8000/${child}/`).then(resp => {
+                                            setProductInfo(resp.data[0])
+                                        })
+                                    }}>
+                                    {child}</p>
+                                );
+                            })}
+                
+                        </>
+                    )})}
+            </div>       
+        </>
+        )
 
 }
 

@@ -3,6 +3,7 @@ import { useState } from 'react'
 
 import Menu from './components/Menu/Menu.jsx'
 import ProductInfo from './components/ProductInfo/ProductInfo.jsx'
+import ProductForm from './components/ProductForm/ProductForm.jsx'
 import './App.css'
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
                 <Menu setProductInfo={setProsuctInfo}/>
           </div>
           <div className="col-7 d-flex justify-content-center align-items-center">
-            {productInfo.length != 0 ? <ProductInfo productInfo={productInfo} setProductInfo={setProsuctInfo}/>: ''}
+            {productInfo.length != 0 ? <ProductInfo productInfo={productInfo} setProductInfo={setProsuctInfo}/> : <ProductForm />}
           </div>
         </div>
     </div>
