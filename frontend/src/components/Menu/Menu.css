@@ -1,0 +1,32 @@
+.btn-tb, .product-list{margin: 15px;}
+.btn-tb{
+    gap: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.btn-tb button{
+    background: #4B92DB;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px; 
+    position: relative;
+    transition: .4s;    
+}
+.btn-tb button:hover{
+    border-radius: 25px;
+    background: #4B9;
+}
+.product-list h4{
+    padding-bottom: 5px;
+    border-bottom: 3px solid #4B92DB;
+}
+.product-list p{
+    padding:  5px 0 2px 10px;
+    border-bottom: 1px solid #4B92DB;
+    transition: .4s;
+}
+.product-list p:hover{
+    background: #4B92DB;
+    color: white;
+}
