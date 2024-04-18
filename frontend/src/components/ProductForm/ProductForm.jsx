@@ -36,15 +36,14 @@ function ProductForm(){
         })
     }
 
-    function handleSubmit(formData){
+    function handleSubmit(event){
         event.preventDefault()
-        const data = new FormData();
-        data.append("name", formData.target.name.value)
-        data.append("description", formData.target.description.value)
+        const data = new FormData(event.tagret);
+        data.append("name", event.target.name.value)
+        data.append("description", event.target.description.value)
         data.append("image", selectData.image, selectData.image.name)
-        data.append("category", formData.target.category.value)
-        data.append("manufacturer", formData.target.manufacturer.value)
-        console.log(formData.target.name.value);
+        data.append("category", event.target.category.value)
+        data.append("manufacturer", event.target.manufacturer.value)
         axios.post("http://localhost:8000/createitem/", data)
         .then(response => {console.log(response.data)})
 

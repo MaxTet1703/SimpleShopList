@@ -1,5 +1,6 @@
 import axios from 'axios'
 import {useState, useEffect} from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 import './Menu.css'
 
@@ -50,16 +51,17 @@ function Menu({setProductInfo}){
             <div className="product-list">
                 {localSettings.itemsData.map(el => {
                     return (
-                        <>
-                            <h4 key={el.name}>{el.name}</h4>
+                        <>   
+                            <h4 key={el.name}>{el.name}: <span>{el.count}</span></h4>
+                            
                             {el.items.map(child => {
                                 return (
                                     <p key={child} onClick={() => {
-                                        axios.get(`http://localhost:8000/${child}/`).then(resp => {
+                                        axios.get(`http://localhost:8000/items/${child.slug}/`).then(resp => {
                                             setProductInfo(resp.data[0])
                                         })
                                     }}>
-                                    {child}</p>
+                                    {child.name}</p>
                                 );
                             })}
                 
