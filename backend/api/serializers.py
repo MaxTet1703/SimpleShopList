@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from django.core.files.uploadedfile import InMemoryUploadedFile
 
 from .models import Items, Category, Manufacturers, Description
 
@@ -27,8 +28,9 @@ class ManufacturersSerializer(serializers.ModelSerializer):
         fields = ["name", "items"]
 
 class NewItemSerializer(serializers.Serializer):
-    name = serializers.CharField()
-    description = serializers.CharField()
-    image = serializers.ImageField()
-    category = serializers.CharField()
-    manufacturer = serializers.CharField()
+    name = serializers.CharField(required=True)
+    image = serializers.ImageField(required=False)
+    description = serializers.CharField(required=True)
+    category = serializers.CharField(required=True)
+    manufacturer = serializers.CharField(required=True)
+
